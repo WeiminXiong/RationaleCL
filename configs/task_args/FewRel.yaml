@@ -1,0 +1,6 @@
+task_name: "RelationExtraction"
+dataset_name: "FewRel"
+num_tasks: 10
+class_per_task: 8
+accumulation_steps: 1
+train_batch_size: 32

@@ -1,0 +1,8 @@
+stage1_type: 'MT'
+stage2_type: 'MT'
+alpha: 0.5
+beta: 0.5
+qtr: False
+qti: False
+use_contrastive_rationale: False
+threshold: 0.96

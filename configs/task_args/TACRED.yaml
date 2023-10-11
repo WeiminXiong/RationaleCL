@@ -1,0 +1,8 @@
+task_name: "RelationExtraction"
+dataset_name: "TACRED"
+
+train_batch_size: 32
+eval_batch_size: 64
+
+num_tasks: 10
+class_per_task: 4

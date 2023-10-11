@@ -1,0 +1,12 @@
+CUDA_VISIBLE_DEVICES=0 python main.py \
+    +task_args=FewRel \
+    +model_args=t5-base-lm-adapt \
+    +training_args=mt \
+    ++training_args.alpha=0.6 \
+    ++training_args.qtr=True \
+    ++training_args.qti=True \
+    ++training_args.beta=0.5 \
+    ++task_args.accumulation_steps=1 \
+    ++task_args.train_batch_size=32 \
+    ++training_args.use_contrastive_rationale=True \
+    ++training_args.threshold=0.97

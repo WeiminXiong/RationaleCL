@@ -1,0 +1,66 @@
+task_args:
+  # DataArguments
+  task_name: "EventDetection"
+  model_name: "CLT5"
+  data_path: "datasets"
+  dataset_name: "TACRED"
+  max_seq_length: 256
+  overwrite_cache: False
+  pad_to_max_length: False
+  num_tasks: 10
+  class_per_task: 4
+  model_arch: "T5ForConditionalGeneration"
+  accumulation_steps: 1
+  train_batch_size: 32
+
+model_args:
+  # ModelArguments
+  model_name_or_path: "google/t5-base-lm-adapt"
+  config_name: "google/t5-base-lm-adapt"
+  tokenizer_name: "google/t5-base-lm-adapt"
+  use_fast_tokenizer: True
+  classifier_dropout: 0.5
+
+training_args:
+  # TrainingArguments
+  output_dir: "outputs"
+  overwrite_output_dir: True
+  do_train: True
+  do_eval: True
+  do_predict: True
+  eval_batch_size: 64
+  optim: "adamw_torch"
+  learning_rate: 1e-4
+  classifier_learning_rate: 1e-3
+  decoder_learning_rate: 1e-3
+  weight_decay: 0
+  lr_scheduler_type: "constant"
+  max_grad_norm: 10.0
+  num_exp_rounds: 5
+  memory_size: 10
+  supervised: False
+  stage1_epochs: 10
+  stage2_epochs: 10
+  joint_stage_epochs: 10
+  stage1_type: 'default'
+  stage2_type: 'default'
+  joint_stage: False
+  ncm_evaluate: False
+  report_freq: 10
+  seed: 2021
+  device: "cuda:0"
+  debug: False
+  ce_lambda: 1
+  copy_stage2: False
+
+
+defaults:
+  - _self_
+
+
+hydra:
+  job:
+    name: "test"
+  run:
+    dir: "outputs/${task_args.dataset_name}/${task_args.model_name}/${now:%Y-%m-%d_%H-%M-%S}"
+  output_subdir: "hydra_outputs"
