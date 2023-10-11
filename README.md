@@ -71,7 +71,7 @@ bash bash/[dataset]/mt.sh
         - FewRel/TACRED
 ```
 
-    For example,
+For example,
 
 ```
 bash bash/FewRel/mt.sh
