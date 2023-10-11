@@ -77,6 +77,8 @@ For example,
 bash bash/FewRel/mt.sh
 ```
 
+ The model we used for our experiments was gpt-3.5-turbo-0301, but this model has now been deprecated. As a result, the generated contrastive rationales may be somewhat different, potentially leading to some variations in the final results.
+
 ## Citation
 
 If you find this repo useful, please cite us.
